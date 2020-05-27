@@ -1,0 +1,24 @@
+download.file("https://raw.githubusercontent.com/markziemann/SLE712_files/master/bioinfo_asst3_part1_files/gene_expression.tsv", destfile = "Assignment 3 1.tsv")
+head (x)
+str(x)
+x<- read.table("Assignment 3 1.tsv")
+head(x)
+str(x)
+x[1:7, ]
+x <-read.table("Assignment 3 1.tsv",header= TRUE, row.names = 1)
+head(x)
+str(x)
+x$mean2 <- rowMeans(x)
+head(x)
+str(x)
+order(x$mean2) # rank the values from lowest to highest
+order(-x$mean2) # rank values for highest to lowest
+x[order(-x$mean2), ] # reorder from highest to lowest 
+x_sorted <- x[order(-x$mean2), ]
+head(x_sorted,10)
+a <- subset(x, mean2<10) #question4
+head(a)
+str(a)
+
+hist(x$mean2)
+hist(x$mean2, breaks = 20)
