@@ -1,0 +1,44 @@
+download.file("https://raw.githubusercontent.com/markziemann/SLE712_files/master/bioinfo_asst3_part1_files/growth_data.csv", destfile = "Assgnmt 3 part1.2.csv")
+y<- read.csv("Assgnmt 3 part1.2.csv", header = TRUE)
+head(y)
+str(y)
+mean(y$Circumf_2004_cm)
+subset(y, Site=="northeast")
+head(y)
+str(y)
+subset(y, Site=="southwest")
+head(y)
+str(y)
+ne <- subset(y, Site=="northeast")
+head(ne)
+str(ne)
+sw <- subset(y, Site=="southwest")
+head(sw)
+str(sw)
+mean(ne$Circumf_2004_cm)
+mean(sw$Circumf_2004_cm)
+mean(ne$Circumf_2019_cm)
+mean(sw$Circumf_2019_cm)
+sd(sw$Circumf_2019_cm)
+sd(ne$Circumf_2019_cm)
+sd(sw$Circumf_2004_cm)
+sd(ne$Circumf_2004_cm)
+
+head(ne)
+head(sw)
+boxplot(ne$Circumf_2004_cm,ne$Circumf_2019_cm)
+boxplot(ne$Circumf_2004_cm,ne$Circumf_2019_cm,sw$Circumf_2004_cm,sw$Circumf_2019_cm)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
