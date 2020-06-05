@@ -1,4 +1,4 @@
-#Assignment 3 Part 1
+Assignment 3 Part 1
 download.file("https://raw.githubusercontent.com/markziemann/SLE712_files/master/bioinfo_asst3_part1_files/gene_expression.tsv", destfile = "gene.expression.tsv")
 
 #Question 1:Read in the file, making the gene accession numbers the row names. Show a table of values for the first six genes. 
@@ -62,9 +62,36 @@ head(sw)
 # Question 8: Make a box plot of tree circumference at the start and end of the study at both sites.
 boxplot(ne$Circumf_2004_cm,ne$Circumf_2019_cm)
 boxplot(ne$Circumf_2004_cm,ne$Circumf_2019_cm,sw$Circumf_2004_cm,sw$Circumf_2019_cm,names= c("ne2004","ne2019","sw2004","sw2019"), ylab="Circumference (cm)", xlab="site and years", main="Growth at plantation site")
+#Question 9
+mean(ne$Circumf_2009_cm)
+o <- mean(ne$Circumf_2009_cm)
+mean(ne$Circumf_2019_cm)
+p <- mean(ne$Circumf_2019_cm)
+x <- sum(o,p)
+mean <- x/2
+mean(sw$Circumf_2009_cm)
+r <- mean(sw$Circumf_2009_cm)
+mean(sw$Circumf_2019_cm)
+s <- mean(sw$Circumf_2019_cm)
+y <- sum(r,s)
+mean <- y/2
+nemean <- ne$Circumf_2019_cm-ne$Circumf_2009_cm
+ne$growth <- ne$Circumf_2019_cm-ne$Circumf_2009_cm
+mean(ne$growth)
+head(ne$growth)
+head(ne)
+str(ne)
+swmean <- sw$Circumf_2019_cm-sw$Circumf_2009_cm
+sw$growth <- sw$Circumf_2019_cm-sw$Circumf_2009_cm
+mean(sw$growth)
+head(sw$groth)
+head(sw)
+str(sw)
 
+#Question 10
 
-
+t.test(ne$growth,sw$growth)
+wilcox.test(ne$growth,sw$growth)
 
 
 
