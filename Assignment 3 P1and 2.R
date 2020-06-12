@@ -201,3 +201,19 @@ aln <- pairwiseAlignment(c_1,C25_mut_1) #aln is the object of the pairwise align
 pid(aln)
 
 nmismatch(aln) #The number of mismatches found were 57.
+
+
+
+
+myfunc <- function(myseq,nmut) {
+  mutseq <- mutator( myseq= c, nmut = 50) #the sequence for mutation, nmut=nmut as it will recognize the number after the sequence as nmut
+  res <- myblastn_tab(myseq= C25_mut, db= "Escherichia_coli_str_k_12_substr_mg1655.ASM584v2.cds.all.fa") #for blast
+  if (is.null(res)) {myres= 0} else {myres = 1}
+  return(myres)
+}
+
+myfunc(myseq =c, nmut = 50)
+myfucn_rep <- replicate(n = 100, myfunc(c,50))
+head(myfucn_rep)
+str(myfucn_rep)
+
